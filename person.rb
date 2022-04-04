@@ -14,7 +14,7 @@ class Person
   end
 
   def can_use_services?
-    true if of_age?
+    of_age?
   end
 
   private :of_age?
