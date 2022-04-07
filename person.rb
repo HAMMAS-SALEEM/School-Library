@@ -1,4 +1,5 @@
 require './decorator'
+require './rentals'
 
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -6,6 +7,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
     super()
   end
 
@@ -13,7 +15,7 @@ class Person < Nameable
     @name
   end
 
-  attr_reader :id
+  attr_reader :id, :rentals
   attr_accessor :name, :age
 
   def of_age?
@@ -22,6 +24,10 @@ class Person < Nameable
 
   def can_use_services?
     of_age?
+  end
+
+  def add_rentals=(book, date)
+    Rental.new(book, self, date)
   end
 
   private :of_age?
