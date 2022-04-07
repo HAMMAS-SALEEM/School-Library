@@ -50,3 +50,13 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
+require "./student"
+require "./teacher"
+require "./book"
+require "./rentals"
+naeem  = Teacher.new(30,"Naeem")
+hammas = Student.new(22,"Hammas")
+oop = Book.new("OOP", "Tasleem Mustufa")
+dbms = Book.new("DBMS", "Tasleem Mustufa")
+oop_rent = Rental.new(hammas,dbms,"2022-04-01")
