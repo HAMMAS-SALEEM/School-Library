@@ -2,6 +2,8 @@
 
 >Implemented a simple school library app using the full concepts of object oriented programming in ruby. This application takes input and returns the corresponding results from the terminal.
 
+![Project Image](https://raw.githubusercontent.com/microverseinc/curriculum-ruby/main/oop/images/uml_class_diagram.png?token=GHSAT0AAAAAABSVJLCGPJEK6UXMQ2KYD3FWYSYNFAA)
+
 ## Getting Started
 
 This repository includes file my_list.rb and enumerable.rb as main program files:
