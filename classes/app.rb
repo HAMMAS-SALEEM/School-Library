@@ -57,7 +57,7 @@ class App
     if @books.length.zero?
       puts 'No Books Available'
     else
-      @books.each { |book| puts "Book: #{book.title} Author: #{book.author}" }
+      @books.each_with_index { |book, idx| puts "#{idx})  Book: #{book.title}, Author: #{book.author}" }
     end
     back_to_menu
   end
@@ -77,32 +77,32 @@ class App
     puts '1 - Create Student  2 - Create Teacher'
     select_option
     person = gets.chomp
-    puts 'Insert age'
+    print 'Insert age: '
     age = gets.chomp
-    puts 'Insert name'
+    print 'Insert name: '
     name = gets.chomp
     if person == '1'
       student = Student.new(age, name)
       @people.push(student)
     end
     if person == '2'
-      print 'Insert specializaton: '
-      specializaton = gets.chomp
-      teacher = Teacher.new(specializaton, age, name)
+      print 'Insert specialization: '
+      specialization = gets.chomp
+      teacher = Teacher.new(specialization, age, name)
       @people.push(teacher)
     end
     puts 'Person Created Successfully'
     back_to_menu
   end
 
-  def validate_person(person)
-    puts 'Enter digit between 1 & 2' unless person != 1 || person != 2
-    create_person
-  end
+  # def validate_person(person)
+  #   puts 'Enter digit between 1 & 2' unless person != '1' || person != '1'
+  #   create_person
+  # end
 
   def list_people
     puts 'No person available' if @people.length.zero?
-    @people.each { |person| puts "Name: #{person.name} Age: #{person.age}" }
+    @people.each { |person| puts "Name: #{person.name} Age: #{person.age} Specialization: #{person.specialization}" }
     back_to_menu
   end
 
