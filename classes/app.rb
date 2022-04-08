@@ -4,6 +4,7 @@ require_relative './person'
 require_relative './rentals'
 require_relative './student'
 require_relative './teacher'
+require 'date'
 
 class App
   def initialize
@@ -48,6 +49,8 @@ class App
       create_person
     when '4'
       create_book
+    when
+      create_rental
     else
       'Enter digit from 1 to 7'
     end
@@ -102,8 +105,40 @@ class App
 
   def list_people
     puts 'No person available' if @people.length.zero?
-    @people.each { |person| puts "Name: #{person.name} Age: #{person.age} Specialization: #{person.specialization}" }
+    @people.each { |person| puts "Name: #{person.name} Age: #{person.age}" }
     back_to_menu
+  end
+
+  def create_rental
+    if @books.size.zero?
+      puts 'No Books Available'
+    elsif @people.size.zero?
+      puts 'No Person Available'
+    else
+      puts 'Select a book from the following list by number'
+      @books.each_with_index { |book, index| puts "#{index}) Book Title: #{book.title}, Author: #{book.author}" }
+      rental_book = gets.chomp
+      puts 'Select a person from the following list by number (not id)'
+      @people.each_with_index do |person, index|
+        puts "#{index}) Name: #{person.name} Age: #{person.age} Id: #{person.id}"
+      end
+      rental_person = gets.chomp
+      puts 'Enter date'
+      date = convert_date(gets)
+      rental_detail = Rental.new('hammas', 'avengers', date)
+      @rental.push(rental_detail)
+      puts 'Rental Successfully Created'
+      rental_detail
+    end
+    back_to_menu
+  end
+
+  def list_rentals
+    @rentals.each { |i| puts "Date: #{i.date} Person: #{i.person} Book: #{i.book}" }
+  end
+
+  def convert_date(str)
+    Date.parse(str)
   end
 
   def select_option
