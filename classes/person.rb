@@ -1,5 +1,5 @@
-require './decorator'
-require './rentals'
+require_relative './decorator'
+require_relative './rentals'
 
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
