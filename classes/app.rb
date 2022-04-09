@@ -131,7 +131,6 @@ class App
       rental_detail = Rental.new(@people[rental_person], @books[rental_book], date)
       @rentals.push(rental_detail)
       puts 'Rental Successfully Created'
-    end
     back_to_menu
   end
 
