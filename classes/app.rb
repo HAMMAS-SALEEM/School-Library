@@ -108,7 +108,7 @@ class App
 
   def list_people
     puts 'No person available' if @people.length.zero?
-    @people.each { |person| puts "Name: #{person.name} Age: #{person.age}" }
+    @people.each { |person| puts "[#{person.type}] Name: #{person.name} Age: #{person.age}" }
     back_to_menu
   end
 
@@ -123,7 +123,7 @@ class App
       rental_book = gets.chomp.to_i
       puts 'Select a person from the following list by number (not id)'
       @people.each_with_index do |person, index|
-        puts "#{index}) Name: #{person.name} Age: #{person.age} Id: #{person.id}"
+        puts "#{index}) #{[person.type]} Name: #{person.name} Age: #{person.age} Id: #{person.id}"
       end
       rental_person = gets.chomp.to_i
       puts 'Enter date'
@@ -137,7 +137,7 @@ class App
 
   def list_rentals
     puts 'Select id of any person'
-    @people.each { |i| puts "id: #{i.id}, Person: #{i.name}" }
+    @people.each { |i| puts "[#{i.type.to_i}] id: #{i.id}, Person: #{i.name}" }
     print 'Person id: '
     person_id = gets.chomp
     @rentals.each do |i|

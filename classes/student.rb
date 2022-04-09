@@ -5,8 +5,10 @@ class Student < Person
 
   def initialize(age, parent_permission, name)
     @classroom = classroom
+    @type = 'Student'.delete_prefix('"').delete_suffix('"')
     super(age, parent_permission, name)
   end
+  attr_accessor :type
 
   def play_hookey
     "¯\(ツ)/¯"
