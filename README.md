@@ -6,10 +6,6 @@
 
 ![Project Image](https://raw.githubusercontent.com/microverseinc/curriculum-ruby/main/oop/images/uml_class_diagram.png?token=GHSAT0AAAAAABSVJLCGPJEK6UXMQ2KYD3FWYSYNFAA)
 
-## Getting Started
-
-This repository includes file my_list.rb and enumerable.rb as main program files:
-
 ## Clone and review it
 
 Run the following commands to clone and run it.
