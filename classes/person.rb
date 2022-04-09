@@ -1,9 +1,9 @@
-require './decorator'
-require './rentals'
+require_relative './decorator'
+require_relative './rentals'
 
 class Person < Nameable
-  def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Random.rand(1..9999)
+  def initialize(age, parent_permission, name)
+    @id = Random.rand(1..999_999_999)
     @name = name
     @age = age
     @parent_permission = parent_permission

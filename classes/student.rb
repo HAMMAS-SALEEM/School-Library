@@ -3,10 +3,12 @@ require_relative './person'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age, name = 'Unknown')
+  def initialize(age, parent_permission, name)
     @classroom = classroom
-    super(age, name)
+    @type = 'Student'.delete_prefix('"').delete_suffix('"')
+    super(age, parent_permission, name)
   end
+  attr_accessor :type
 
   def play_hookey
     "¯\(ツ)/¯"
