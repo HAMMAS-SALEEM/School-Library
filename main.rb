@@ -5,8 +5,9 @@ require './app_functionality/data_processing'
 class Main
   include ProcessData
   def initialize
-    books_contents = fetch_data('books')
-    @data = { people: [], books: books_contents, rentals: [] }
+    @people = populate_people
+    @books = populate_books
+    @rentals = populate_rentals(@people, @books)
   end
 
   def list_options
@@ -25,17 +26,17 @@ class Main
   def option(input)
     case input
     when '1'
-      App.new.list_books
+      App.new.list_books(@books)
     when '2'
-      App.new.list_people
+      App.new.list_people(@people)
     when '3'
-      App.new.create_person
+      App.new.create_person(@people)
     when '4'
-      App.new.create_book
+      App.new.create_book(@books)
     when '5'
-      App.new.create_rental(@data[:rentals], @data[:people], @data[:books])
+      App.new.create_rental(@rentals, @books, @people)
     when '6'
-      App.new.list_rentals(@data[:rentals], @data[:people])
+      App.new.list_rentals(@rentals, @people)
     else
       'Enter digit from 1 to 7'
     end
