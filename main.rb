@@ -27,9 +27,9 @@ class Main
     when '1'
       App.new.list_books
     when '2'
-      App.new.list_people(@data[:people])
+      App.new.list_people
     when '3'
-      App.new.create_person(@data[:people])
+      App.new.create_person
     when '4'
       App.new.create_book
     when '5'
