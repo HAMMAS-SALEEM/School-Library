@@ -1,8 +1,12 @@
+require 'json'
 require_relative './classes/app'
+require './app_functionality/data_processing'
 
 class Main
+  include ProcessData
   def initialize
-    @data = { people: [], books: [], rentals: [] }
+    books_contents = fetch_data('books')
+    @data = { people: [], books: books_contents, rentals: [] }
   end
 
   def list_options
@@ -21,13 +25,13 @@ class Main
   def option(input)
     case input
     when '1'
-      App.new.list_books(@data[:books])
+      App.new.list_books
     when '2'
       App.new.list_people(@data[:people])
     when '3'
       App.new.create_person(@data[:people])
     when '4'
-      App.new.create_book(@data[:books])
+      App.new.create_book
     when '5'
       App.new.create_rental(@data[:rentals], @data[:people], @data[:books])
     when '6'
